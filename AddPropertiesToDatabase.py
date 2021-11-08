@@ -46,9 +46,10 @@ def save_data(df, connection):
                 str(id_string), ' ', df.loc[index, 'operation'], int(2015), df.loc[index, 'surface_covered_in_m2'],
                 '2021-09-12', df.loc[index, 'rooms'] + 1, 500, df.loc[index, 'bathrooms'], 1, ' ',
                 df.loc[index, 'price_aprox_usd'], df.loc[index, 'rooms'], df.loc[index, 'surface_total_in_m2'], 7,
-                df.loc[index, 'title'], 1, df.loc[index, 'property_type'], str(id_string), adminId, styleId)
+                df.loc[index, 'title'], 1, df.loc[index, 'property_type'], str(id_string), adminId, styleId,
+                bool(False))
             cursor.execute(
-                "INSERT INTO property (id, comments, condition, construction_date, covered_square_foot, creation_date, environments, expenses, full_baths, levels, park_description, price, rooms, square_foot, step, title, toilets, type, address_id, owner_id, style_id) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                "INSERT INTO property (id, comments, condition, construction_date, covered_square_foot, creation_date, environments, expenses, full_baths, levels, park_description, price, rooms, square_foot, step, title, toilets, type, address_id, owner_id, style_id, is_opportunity) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                 values)
             connection.commit()
 
